@@ -65,8 +65,7 @@ nav {
   background-color: #faf9f6;
   display: flex;
   justify-content: center; 
-  width: 100vw;             /* Forza l'estensione a tutto schermo */
-  margin-left: calc(-50vw + 50%); /* Trucco per uscire dai limiti dell'header centrato */
+  width: 100%;             /* Cambiato da 100vw a 100% */
 }
 
 nav ul {
@@ -303,43 +302,47 @@ footer {
    RESPONSIVE UNIFICATO (Per smartphone e schermi piccoli)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Sistemazione del menu e sblocco totale degli spazi */
+    /* Forziamo il menu a resettare i vincoli dell'header e a spalmarsi sui bordi dello schermo */
     nav {
-        margin-left: 0;
-        width: 100%;
+        position: sticky;
+        top: 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%); /* Sposta la striscia bianca da bordo a bordo */
+        background-color: #faf9f6;
+        box-sizing: border-box;
     }
 
     nav ul {
         padding: 10px 0;
-        gap: 5px;         /* Ridotto da 8px a 6px per stringere il menu */
+        gap: 4px;             /* Spazio ultra-ottimizzato tra i link */
         justify-content: center;
         width: 100%;
+        margin: 0;
     }
 
     nav a {
-        padding: 6px 3px; /* Ridotto il padding laterale da 8px a 4px per recuperare spazio prezioso */
-        font-size: 0.78rem; /* Un soffio più piccolo (da 0.8rem) per far rientrare la "H" di Home al 100% */
-        white-space: nowrap;
+        padding: 6px 3px;     /* Riduce al minimo l'ingombro laterale invisibile */
+        font-size: 0.75rem;   /* Dimensione ideale per schermi mobili orizzontali e verticali */
+        white-space: nowrap;  /* Impedisce tassativamente di andare a capo */
     }
 
     /* Sistemazione della sezione Hero (Foto e Testo) */
     .hero {
-        flex-direction: column; /* Mette la foto sotto il testo evitando sovrapposizioni sia in orizzontale che verticale */
+        flex-direction: column;
         gap: 30px;
         margin-top: 20px;
     }
 
     .hero-photo {
         flex: 0 0 auto;
-        width: 220px; /* Dimensione ottimale e contenuta su mobile */
+        width: 220px;
     }
 
     h1 {
         font-size: 2.2rem;
-        white-space: normal; /* Permette al nome di andare a capo solo se lo schermo è minuscolo */
+        white-space: normal;
     }
 
-    /* Griglia opere a una colonna */
     .opere-grid {
         grid-template-columns: 1fr;
         gap: 40px;
