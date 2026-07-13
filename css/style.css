@@ -311,12 +311,14 @@ footer {
 
     nav ul {
         padding: 10px 0;
-        gap: 8px; /* Riduzione millimetrica dello spazio per far stare tutto in verticale */
+        gap: 6px;         /* Ridotto da 8px a 6px per stringere il menu */
+        justify-content: center;
+        width: 100%;
     }
 
     nav a {
-        padding: 6px 8px; /* Riduce il raggio del click per non far uscire le parole */
-        font-size: 0.8rem;
+        padding: 6px 4px; /* Ridotto il padding laterale da 8px a 4px per recuperare spazio prezioso */
+        font-size: 0.78rem; /* Un soffio più piccolo (da 0.8rem) per far rientrare la "H" di Home al 100% */
         white-space: nowrap;
     }
 
