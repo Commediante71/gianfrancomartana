@@ -1,0 +1,327 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 10px; /* Sposta il punto di arresto dello scorrimento verso il basso */
+}
+/* ==========================================================================
+   PAGINA E TIPOGRAFIA
+   ========================================================================== */
+
+body {
+    /* Usiamo il font principale caricato da Google Fonts */
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: #faf9f6;
+    color: #333;
+    line-height: 1.8; /* Aumenta la leggibilità dei paragrafi */
+    margin: 0;
+    padding-bottom: 60px; /* Spazio in fondo alla pagina */
+}
+
+/* Applichiamo il font elegante ai titoli */
+h1, h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    margin: 0;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   CONTENITORI (LAYOUT CENTRATO)
+   ========================================================================== */
+
+main,
+header,
+footer {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   HEADER & MENU DI NAVIGAZIONE
+   ========================================================================== */
+
+header {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #faf9f6; /* O il colore del tuo sfondo */
+  
+  /* Queste due righe centrano tutto il menu nella pagina */
+  display: flex;
+  justify-content: center; 
+}
+/* Sistemazione del menu con la nuova struttura a liste dell'HTML */
+nav ul {
+  display: flex;
+  justify-content: center; /* Centra i link orizzontalmente */
+  gap: 40px;
+  font-size: 0.95rem;
+  list-style: none; /* Rimuove i pallini della lista */
+  padding: 15px 0;  /* Spazio sopra e sotto i link: regola questo per l'altezza della striscia! */
+  margin: 0;        /* Azzeriamo gli 80px di prima che deformavano la striscia */
+}
+
+nav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #666;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+/* ==========================================================================
+   SEZIONE HERO (INTRODUZIONE)
+   ========================================================================== */
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Allinea verticalmente testo e foto allo stesso livello */
+    gap: 80px;
+    margin-top: 40px; /* Ridotto leggermente per bilanciare lo spazio sotto il menu */
+}
+
+.hero-text {
+    flex: 1;
+    text-align: center; /* Centra internamente il nome e la scritta "Scrittore" */
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px; /* Spazio sotto il nome prima di "Scrittore" */
+    white-space: nowrap; /* Forza il nome e cognome a rimanere tassativamente su una sola riga */
+}
+
+.professione {
+    font-size: 1.3rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.hero-photo {
+    flex: 0 0 320px; /* Mantiene la foto della dimensione corretta sulla destra */
+}
+
+.hero-photo img {
+    width: 100%;
+    display: block;
+    border-radius: 50%; /* Se vuoi la foto circolare come nell'esempio visivo, altrimenti rimuovi questa riga */
+    object-fit: cover;
+}
+
+.professione {
+    font-size: 1.3rem;
+    color: #666;
+    font-style: italic; /* Rende la professione più elegante */
+}
+
+/* ==========================================================================
+   SEZIONI DEL CORPO (MAIN)
+   ========================================================================== */
+
+section {
+    padding: 80px 0;
+    border-top: 1px solid #e5e4e1; /* Riga di divisione leggermente più morbida */
+}
+
+.content {
+    max-width: 700px; /* Stringe leggermente il testo per non farlo allungare troppo, migliorando la lettura */
+}
+
+/* ==========================================================================
+   PIÈ DI PAGINA
+   ========================================================================== */
+
+footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888;
+    padding-top: 40px;
+    border-top: 1px solid #e5e4e1;
+}
+/* ==========================================================================
+   SEZIONE OPERE SCELTE (GRID LAYOUT)
+   ========================================================================== */
+
+/* Crea la griglia a due colonne */
+.opere-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide lo spazio in due colonne uguali */
+    gap: 90px 90px; /* Spazio tra la colonna di destra e quella di sinistra */
+    margin-top: 80px;
+}
+
+/* Struttura della singola scheda */
+.opera-card {
+    display: flex;
+    flex-direction: column; /* Dispone elementi in verticale: prima foto, poi testo */
+}
+
+/* Gestione delle immagini */
+.opera-image {
+    width: 100%;
+    margin-bottom: 25px; /* Spazio tra la foto e il titolo del racconto */
+}
+
+.opera-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Un'ombra leggerissima per dare profondità alle copertine */
+}
+
+/* Stile dei titoli dei racconti */
+.opera-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+/* Testo descrittivo */
+.opera-info p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* I link "Leggi su..." */
+.opera-link {
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: #000;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.opera-link:hover {
+    color: #666; /* Il link schiarisce leggermente quando ci passi sopra */
+}
+
+/* ==========================================================================
+   RESPONSIVE (Per i telefoni cellulari)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .opere-grid {
+        grid-template-columns: 1fr; /* Sui telefoni le colonne si mettono una sotto l'altra */
+        gap: 40px;
+    }
+}
+/* ==========================================================================
+   MODULO DI CONTATTO MINIMAL (STILE TALLY)
+   ========================================================================== */
+
+.contatti-form {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Spazio compatto tra i campi */
+    max-width: 600px; /* Riduce la larghezza per non farlo allungare troppo */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Campi di input (Nome, Email) e area di testo (Messaggio) */
+.form-group input,
+.form-group textarea {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.05rem;
+    padding: 16px 20px; /* Spessore interno generoso come nella foto */
+    border: 1px solid #e0dfdb; /* Bordo grigio molto chiaro e sottile */
+    background-color: #fff;
+    border-radius: 14px; /* Angoli decisamente arrotondati */
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* Colore del testo provvisorio (Placeholder) */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+}
+
+/* Effetto quando si clicca dentro una casella per scrivere */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #888; /* Il bordo si scurisce leggermente */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.02); /* Ombra quasi invisibile */
+}
+
+/* Pulsante Invia scuro e stondato con freccia */
+.btn-invia {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    background-color: #0f172a; /* Blu notte molto scuro, quasi nero */
+    color: #fff;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 12px; /* Angoli arrotondati coerenti con i campi */
+    cursor: pointer;
+    align-self: flex-start; /* Mantiene il pulsante compatto a sinistra */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+.btn-invia:hover {
+    background-color: #000; /* Nero pieno al passaggio del mouse */
+}
+
+.btn-invia:active {
+    transform: scale(0.98); /* Piccolo feedback visivo al clic */
+}
+/* ==========================================================================
+   ICONA SOCIAL
+   ========================================================================== */
+
+.social-links {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start; /* Allinea l'icona a sinistra sotto il pulsante */
+}
+
+.social-links a {
+    color: #333; /* Colore grigio scuro neutro, coerente con il sito */
+    font-size: 2rem; /* Dimensione dell'icona ben visibile */
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+/* Effetto quando ci passi sopra con il mouse */
+.social-links a:hover {
+    color: #000; /* Diventa nera piena */
+    transform: scale(1.08); /* Si ingrandisce leggermente in modo fluido */
+}
