@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 10px; /* Sposta il punto di arresto dello scorrimento verso il basso */
+}
 /* ==========================================================================
    PAGINA E TIPOGRAFIA
    ========================================================================== */
@@ -54,19 +58,29 @@ header {
     padding-top: 40px;
     padding-bottom: 60px;
 }
-
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #faf9f6; /* O il colore del tuo sfondo */
+  
+  /* Queste due righe centrano tutto il menu nella pagina */
+  display: flex;
+  justify-content: center; 
+}
 /* Sistemazione del menu con la nuova struttura a liste dell'HTML */
 nav ul {
-    display: flex;
-    justify-content: flex-start;
-    gap: 40px;
-    font-size: 0.95rem;
-    list-style: none; /* Rimuove i pallini della lista */
-    padding: 0;
-    margin: 0 0 80px 0; /* Spazio sotto il menu */
+  display: flex;
+  justify-content: center; /* Centra i link orizzontalmente */
+  gap: 40px;
+  font-size: 0.95rem;
+  list-style: none; /* Rimuove i pallini della lista */
+  padding: 15px 0;  /* Spazio sopra e sotto i link: regola questo per l'altezza della striscia! */
+  margin: 0;        /* Azzeriamo gli 80px di prima che deformavano la striscia */
 }
 
 nav a {
+    padding: 10px 15px;
     text-decoration: none;
     color: #666;
     transition: 0.2s;
