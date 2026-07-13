@@ -325,3 +325,16 @@ footer {
     color: #000; /* Diventa nera piena */
     transform: scale(1.08); /* Si ingrandisce leggermente in modo fluido */
 }
+/* Regole specifiche solo per gli schermi dei telefoni (sotto i 600px) */
+@media (max-width: 600px) {
+  nav ul {
+    gap: 12px;          /* Stringe lo spazio tra i link per farli entrare tutti */
+    font-size: 0.8rem;  /* Rimpicciolisce leggermente il testo per lo schermo stretto */
+    padding: 10px 5px;  /* Mantiene la striscia sottile e pulita */
+    flex-wrap: nowrap;  /* Impedisce all'intera lista di spezzarsi su più righe */
+  }
+
+  nav a {
+    white-space: nowrap; /* Magia: impedisce a parole come "Chi sono" di andare a capo! */
+  }
+}
