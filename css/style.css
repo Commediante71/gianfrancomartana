@@ -282,7 +282,8 @@ footer {
 .social-links {
     margin-top: 40px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Allinea le icone a sinistra */
+    gap: 25px;                   /* Crea uno spazio perfetto di 25 pixel tra un'icona e l'altra */
 }
 
 .social-links a {
