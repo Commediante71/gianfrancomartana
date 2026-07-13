@@ -325,16 +325,19 @@ footer {
     color: #000; /* Diventa nera piena */
     transform: scale(1.08); /* Si ingrandisce leggermente in modo fluido */
 }
-/* Regole specifiche solo per gli schermi dei telefoni (sotto i 600px) */
+/* Quando lo schermo è piccolo (smartphone in verticale) */
 @media (max-width: 600px) {
   nav ul {
-    gap: 12px;          /* Stringe lo spazio tra i link per farli entrare tutti */
-    font-size: 0.8rem;  /* Rimpicciolisce leggermente il testo per lo schermo stretto */
-    padding: 10px 5px;  /* Mantiene la striscia sottile e pulita */
-    flex-wrap: nowrap;  /* Impedisce all'intera lista di spezzarsi su più righe */
+    display: flex;
+    justify-content: center; /* Forza la centratura perfetta di tutti gli elementi */
+    width: 100%;             /* Dice al menu di usare tutto lo spazio del telefono */
+    padding: 10px 0;         /* Pulisce i margini interni orizzontali */
+    margin: 0;               /* Resetta qualsiasi margine esterno che sposta il menu */
+    gap: 12px;               /* Spazio ottimale tra i link per farli stare in riga */
   }
 
   nav a {
-    white-space: nowrap; /* Magia: impedisce a parole come "Chi sono" di andare a capo! */
+    white-space: nowrap;     /* Mantiene le scritte su una sola riga */
+    font-size: 0.85rem;      /* Dimensione perfetta per far leggere tutto comodamente */
   }
 }
