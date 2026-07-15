@@ -352,31 +352,39 @@ footer {
 }
 /* --- CAROUSEL SU SMARTPHONE --- */
 @media (max-width: 768px) {
-    /* 1. Applichiamo lo scorrimento orizzontale al contenitore delle opere */
-    /* NOTA: Se il tuo contenitore ha un nome diverso da .opere-grid, sostituiscilo qui sotto */
     .opere-grid, .grid, .racconti-container {
         display: flex !important;
         overflow-x: auto !important;
-        scroll-snap-type: x mandatory;
+        
+        /* 1. Forza l'arresto rigoroso sulla card successiva */
+        scroll-snap-type: x mandatory; 
         scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Nasconde la barra su Firefox */
+        
+        /* 2. Riduciamo la velocità di scorrimento sui browser compatibili */
+        scroll-boundary-behavior: none;
+        
+        /* 3. Rimuoviamo lo scorrimento ultra-veloce di iOS per dare più attrito */
+        -webkit-overflow-scrolling: auto; /* Da 'touch' ad 'auto' per aumentare l'attrito */
+        
+        scrollbar-width: none;
         padding: 15px 20px;
         gap: 20px;
     }
 
-    /* Nasconde la barra di scorrimento su Safari e Chrome */
     .opere-grid::-webkit-scrollbar, 
     .grid::-webkit-scrollbar, 
     .racconti-container::-webkit-scrollbar {
         display: none;
     }
 
-    /* 2. Diamo la larghezza corretta alla tua vera card: .opera-card */
     .opera-card {
-        flex: 0 0 82% !important; /* Forza la card a occupare l'82% dello schermo */
+        flex: 0 0 82% !important;
         scroll-snap-align: center;
+        
+        /* 4. Diciamo al browser di considerare ogni card come un blocco d'arresto singolo */
+        scroll-snap-stop: always; /* Impedisce di saltare più card con un unico swipe forte */
+        
         box-sizing: border-box;
-        margin-bottom: 0 !important; /* Rimuove eventuali margini verticali vecchi */
+        margin-bottom: 0 !important;
     }
 }
