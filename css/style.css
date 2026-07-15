@@ -350,3 +350,26 @@ footer {
         margin-top: 40px;
     }
 }
+/* --- CAROUSEL SU SMARTPHONE --- */
+@media (max-width: 768px) {
+    .grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 10px 20px;
+        gap: 20px;
+    }
+
+    .grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .card {
+        flex: 0 0 80%;
+        scroll-snap-align: center;
+        box-sizing: border-box;
+    }
+}
