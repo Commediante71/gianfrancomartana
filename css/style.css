@@ -352,24 +352,31 @@ footer {
 }
 /* --- CAROUSEL SU SMARTPHONE --- */
 @media (max-width: 768px) {
-    .grid {
+    /* 1. Applichiamo lo scorrimento orizzontale al contenitore delle opere */
+    /* NOTA: Se il tuo contenitore ha un nome diverso da .opere-grid, sostituiscilo qui sotto */
+    .opere-grid, .grid, .racconti-container {
         display: flex !important;
         overflow-x: auto !important;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding: 10px 20px;
+        scrollbar-width: none; /* Nasconde la barra su Firefox */
+        padding: 15px 20px;
         gap: 20px;
     }
 
-    .grid::-webkit-scrollbar {
+    /* Nasconde la barra di scorrimento su Safari e Chrome */
+    .opere-grid::-webkit-scrollbar, 
+    .grid::-webkit-scrollbar, 
+    .racconti-container::-webkit-scrollbar {
         display: none;
     }
 
-    .card {
-        flex: 0 0 80%;
+    /* 2. Diamo la larghezza corretta alla tua vera card: .opera-card */
+    .opera-card {
+        flex: 0 0 82% !important; /* Forza la card a occupare l'82% dello schermo */
         scroll-snap-align: center;
         box-sizing: border-box;
+        margin-bottom: 0 !important; /* Rimuove eventuali margini verticali vecchi */
     }
 }
