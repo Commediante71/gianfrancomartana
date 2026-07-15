@@ -388,3 +388,89 @@ footer {
         margin-bottom: 0 !important;
     }
 }
+/* Stile per il selettore di lingua */
+.lang-switcher {
+    font-family: 'Source Serif 4', serif; /* o il font del tuo menu */
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.lang-switcher a {
+    text-decoration: none;
+    color: #555; /* Grigio scuro, o il colore del tuo testo */
+    transition: color 0.3s ease;
+}
+
+.lang-switcher a:hover {
+    color: #000; /* Diventa nero al passaggio del mouse */
+}
+
+.lang-switcher .active {
+    font-weight: bold;
+    color: #000; /* Evidenzia la lingua attualmente attiva */
+}
+/* --- GESTIONE MENU + SWITCH LINGUA --- */
+nav {
+    display: flex;
+    justify-content: space-between; /* Spinge il menu a sinistra e lo switch a destra */
+    align-items: center;
+    
+    /* --- NUOVI CONTROLLI PER EVITARE CHE ESCRA DALLO SCHERMO --- */
+    width: 100%;
+    max-width: 1200px; /* Impedisce al menu di allargarsi all'infinito su schermi enormi */
+    margin: 0 auto;    /* Centra l'intero blocco del menu nella pagina */
+    padding: 15px 20px; /* Ridotto il padding laterale per dare più spazio */
+    box-sizing: border-box; /* Include il padding nella larghezza totale, evitando sforamenti */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px; /* Spazio tra i link del menu (regolalo a piacere) */
+}
+
+/* Stile estetico per lo switch */
+.lang-switcher {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.lang-switcher a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.lang-switcher a:hover {
+    color: #000;
+}
+
+.lang-switcher .active {
+    font-weight: bold;
+    color: #000;
+}
+
+/* --- ADATTAMENTO SMARTPHONE --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Dispone menu e switch uno sotto l'altro */
+        gap: 15px; /* Spazio verticale tra menu e switch */
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: row; /* Mantiene i link del menu sulla stessa riga (o cambialo in column se preferisci verticali) */
+        justify-content: center;
+        flex-wrap: wrap; /* Se non ci stanno, vanno a capo da soli senza rompersi */
+    }
+
+    .lang-switcher {
+        width: 100%;
+        text-align: center; /* Centra lo switch sotto il menu */
+        margin-top: 5px;
+    }
+}
