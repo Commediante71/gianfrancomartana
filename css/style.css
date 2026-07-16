@@ -17,7 +17,7 @@ body {
 }
 
 h1, h2 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Source Serif 4', Georgia, serif;
     font-weight: 500;
     margin: 0;
 }
@@ -104,17 +104,26 @@ nav a:hover {
 
 .hero-text {
     flex: 1;
-    text-align: center;
+    text-align: left;
 }
 
 h1 {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
-    white-space: nowrap;
+   font-family: 'Source Serif 4', Georgia, serif;
+    text-transform: uppercase; /* Per forzare il maiuscolo */
+    
+    /* MODIFICA FONDAMENTALE PER IL FONT */
+    font-weight: 600;          /* Forza il peso Bold (o 600 per Semi-Bold) */
+    
+    /* ALTRE REGHE PER AVVICINARSI */
+    font-size: 1.5rem       /* Aumentiamo leggermente la dimensione */
+    
+    color: #1a1a1a;            /* Un nero quasi puro */
+    margin-bottom: 0;          /* Eliminiamo lo spazio sotto per il punto 2 */
+    line-height: 0.85 !important;
 }
 
 .professione {
-    font-size: 1.3rem;
+    font-size: 2rem;
     color: #666;
     
     margin-top: 0;
@@ -186,7 +195,7 @@ footer {
 }
 
 .opera-info h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Source Serif 4', Georgia, serif;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.3;
