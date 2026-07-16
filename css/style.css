@@ -311,22 +311,28 @@ footer {
 /* ==========================================================================
    RESPONSIVE UNIFICATO (Per smartphone e schermi piccoli)
    ========================================================================== */
+/* ==========================================================================
+   STILI PER DISPOSITIVI MOBILI (Schermi fino a 768px)
+   ========================================================================== */
+/* ==========================================================================
+   1. STILI PER DISPOSITIVI MOBILI (Schermi fino a 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
-    /* IL TUO NOME SU MOBILE */
+    
+    /* Il tuo nome su mobile */
     .hero-text h1 {
-        font-size: 2.4rem !important; /* Mantiene il nome bello grande e leggibile */
-        line-height: 0.9 !important;  /* Tiene le due righe del nome ben compatte */
+        font-size: 2.4rem !important;
+        line-height: 0.9 !important;
         margin-bottom: 4px !important;
     }
 
-    /* IL SOTTOTITOLO SU MOBILE (IT, EN, FR) */
+    /* Il sottotitolo su mobile */
     .hero-text .sottotitolo {
-        font-size: 1.3rem !important;  /* Riduce la dimensione per ridare la giusta gerarchia */
-        margin-top: 0 !important;      /* Evita che si sovrapponga troppo ora che è più piccolo */
+        font-size: 1.3rem !important;
+        margin-top: 0 !important;
         line-height: 1.2 !important;
-        color: #666666;
+        color: #666666 !important;
     }
-}
 
     /* Forziamo il menu a resettare i vincoli dell'header e a spalmarsi sui bordi dello schermo */
     nav {
@@ -348,11 +354,11 @@ footer {
 
     nav a {
         padding: 6px 3px;     /* Riduce al minimo l'ingombro laterale invisibile */
-        font-size: 0.75rem;   /* Dimensione ideale per schermi mobili orizzontali e verticali */
+        font-size: 0.75rem;   /* Dimensione ideale per schermi mobili */
         white-space: nowrap;  /* Impedisce tassativamente di andare a capo */
     }
 
-    /* Sistemazione della sezione Hero (Foto e Testo) */
+    /* Sistemazione della sezione Hero (Foto sotto il Testo solo su MOBILE) */
     .hero {
         flex-direction: column;
         gap: 30px;
@@ -374,23 +380,21 @@ footer {
         gap: 40px;
         margin-top: 40px;
     }
-}
-/* --- CAROUSEL SU SMARTPHONE --- */
+
+} /* <-- QUESTA chiude correttamente TUTTE le regole mobili qui sopra */
+
+
+/* ==========================================================================
+   2. CAROUSEL SU SMARTPHONE
+   ========================================================================== */
 @media (max-width: 768px) {
     .opere-grid, .grid, .racconti-container {
         display: flex !important;
         overflow-x: auto !important;
-        
-        /* 1. Forza l'arresto rigoroso sulla card successiva */
         scroll-snap-type: x mandatory; 
         scroll-behavior: smooth;
-        
-        /* 2. Riduciamo la velocità di scorrimento sui browser compatibili */
         scroll-boundary-behavior: none;
-        
-        /* 3. Rimuoviamo lo scorrimento ultra-veloce di iOS per dare più attrito */
-        -webkit-overflow-scrolling: auto; /* Da 'touch' ad 'auto' per aumentare l'attrito */
-        
+        -webkit-overflow-scrolling: auto; 
         scrollbar-width: none;
         padding: 15px 20px;
         gap: 20px;
@@ -405,58 +409,16 @@ footer {
     .opera-card {
         flex: 0 0 82% !important;
         scroll-snap-align: center;
-        
-        /* 4. Diciamo al browser di considerare ogni card come un blocco d'arresto singolo */
-        scroll-snap-stop: always; /* Impedisce di saltare più card con un unico swipe forte */
-        
+        scroll-snap-stop: always; 
         box-sizing: border-box;
         margin-bottom: 0 !important;
     }
 }
-/* Stile per il selettore di lingua */
-.lang-switcher {
-    font-family: 'Source Serif 4', serif; /* o il font del tuo menu */
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
 
-.lang-switcher a {
-    text-decoration: none;
-    color: #555; /* Grigio scuro, o il colore del tuo testo */
-    transition: color 0.3s ease;
-}
 
-.lang-switcher a:hover {
-    color: #000; /* Diventa nero al passaggio del mouse */
-}
-
-.lang-switcher .active {
-    font-weight: bold;
-    color: #000; /* Evidenzia la lingua attualmente attiva */
-}
-/* --- GESTIONE MENU + SWITCH LINGUA --- */
-nav {
-    display: flex;
-    justify-content: space-between; /* Spinge il menu a sinistra e lo switch a destra */
-    align-items: center;
-    
-    /* --- NUOVI CONTROLLI PER EVITARE CHE ESCRA DALLO SCHERMO --- */
-    width: 100%;
-    max-width: 1200px; /* Impedisce al menu di allargarsi all'infinito su schermi enormi */
-    margin: 0 auto;    /* Centra l'intero blocco del menu nella pagina */
-    padding: 15px 20px; /* Ridotto il padding laterale per dare più spazio */
-    box-sizing: border-box; /* Include il padding nella larghezza totale, evitando sforamenti */
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 20px; /* Spazio tra i link del menu (regolalo a piacere) */
-}
-
-/* Stile estetico per lo switch */
+/* ==========================================================================
+   3. STILI GLOBALI (Validi per tutti i dispositivi)
+   ========================================================================== */
 .lang-switcher {
     font-family: 'Source Serif 4', serif;
     font-size: 0.9rem;
@@ -479,23 +441,46 @@ nav ul {
     color: #000;
 }
 
-/* --- ADATTAMENTO SMARTPHONE --- */
+/* Gestione Menu + Switch Lingua su Desktop */
+nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;    
+    padding: 15px 20px; 
+    box-sizing: border-box; 
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px; 
+}
+
+
+/* ==========================================================================
+   4. ADATTAMENTO NAV + SWITCH SU SMARTPHONE
+   ========================================================================== */
 @media (max-width: 768px) {
     nav {
-        flex-direction: column; /* Dispone menu e switch uno sotto l'altro */
-        gap: 15px; /* Spazio verticale tra menu e switch */
+        flex-direction: column; 
+        gap: 15px; 
         text-align: center;
     }
 
     nav ul {
-        flex-direction: row; /* Mantiene i link del menu sulla stessa riga (o cambialo in column se preferisci verticali) */
+        flex-direction: row; 
         justify-content: center;
-        flex-wrap: wrap; /* Se non ci stanno, vanno a capo da soli senza rompersi */
+        flex-wrap: wrap; 
     }
 
     .lang-switcher {
         width: 100%;
-        text-align: center; /* Centra lo switch sotto il menu */
+        text-align: center; 
         margin-top: 5px;
     }
 }
