@@ -312,6 +312,22 @@ footer {
    RESPONSIVE UNIFICATO (Per smartphone e schermi piccoli)
    ========================================================================== */
 @media (max-width: 768px) {
+    /* IL TUO NOME SU MOBILE */
+    .hero-text h1 {
+        font-size: 2.4rem !important; /* Mantiene il nome bello grande e leggibile */
+        line-height: 0.9 !important;  /* Tiene le due righe del nome ben compatte */
+        margin-bottom: 4px !important;
+    }
+
+    /* IL SOTTOTITOLO SU MOBILE (IT, EN, FR) */
+    .hero-text .sottotitolo {
+        font-size: 1.3rem !important;  /* Riduce la dimensione per ridare la giusta gerarchia */
+        margin-top: 0 !important;      /* Evita che si sovrapponga troppo ora che è più piccolo */
+        line-height: 1.2 !important;
+        color: #666666;
+    }
+}
+
     /* Forziamo il menu a resettare i vincoli dell'header e a spalmarsi sui bordi dello schermo */
     nav {
         position: sticky;
