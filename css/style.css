@@ -223,6 +223,132 @@ footer {
 }
 
 /* ==========================================================================
+   SEZIONE TACCUINO / OFFICINA (Versione Aggiornata)
+   ========================================================================== */
+.taccuino-container {
+    display: none !important;
+       width: 100%;             /* Forza la sezione a prendersi tutta la larghezza */
+    max-width: 1200px;       /* Allineato al max-width che abbiamo usato per il menu */
+    margin: 60px auto;       /* Centra la sezione nella pagina e dà respiro verticale */
+    padding: 0 20px;
+    box-sizing: border-box;  /* Evita sforamenti strani */
+}
+
+.sezione-titolo {
+    font-family: 'Source Serif 4', serif;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: left;
+    width: 100%;
+}
+
+/* Griglia a due colonne forzata ed equilibrata */
+.taccuino-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Crea 2 colonne perfettamente uguali (50% ciascuna) */
+    gap: 40px;                             /* Spazio tra le due colonne */
+    width: 100%;
+    align-items: start;
+}
+
+.taccuino-card {
+    background: #faf9f6; 
+    border: 1px solid #e0dfdb;
+    border-radius: 4px;
+    overflow: hidden;
+    padding-bottom: 15px;
+    width: 100%;                           /* Spinge la card a occupare tutta la sua colonna */
+    box-sizing: border-box;
+}
+
+/* FORZATURA FORMATO 3:2 PER LE FOTO */
+.taccuino-img-wrapper {
+    width: 100%;
+    aspect-ratio: 3 / 2; /* Imposta rigidamente la proporzione 3:2 */
+    overflow: hidden;
+}
+
+.taccuino-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ritaglia l'immagine senza distorcerla */
+    transition: transform 0.5s ease;
+}
+
+.taccuino-card:hover .taccuino-img {
+    transform: scale(1.03); /* Leggerissimo effetto zoom al passaggio del mouse */
+}
+
+.taccuino-content {
+    padding: 20px;
+}
+
+.taccuino-data {
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.taccuino-titolo {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.4rem;
+    margin: 8px 0 15px 0;
+    color: #111;
+}
+
+/* Gestione dell'effetto espansione nativo */
+.taccuino-details {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Rimuove la freccetta standard di Chrome/Safari */
+.taccuino-details summary::-webkit-details-marker {
+    display: none;
+}
+.taccuino-summary {
+    list-style: none; /* Rimuove freccetta su Firefox */
+    cursor: pointer;
+    outline: none;
+}
+
+/* Il tasto per espandere */
+.tasto-espandi {
+    display: block;
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-size: 0.85rem;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Quando il menu è aperto, cambiamo il testo (opzionale tramite CSS avanzato, 
+   o semplicemente indichiamo visivamente che si è aperto) */
+.taccuino-details[open] .tasto-espandi {
+    content: "[ Chiudi ]";
+    opacity: 0.5;
+}
+
+.taccuino-testo-completo {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #e0dfdb;
+}
+
+/* --- ADATTAMENTO MOBILE PER IL TACCUINO --- */
+@media (max-width: 768px) {
+    .taccuino-grid {
+        grid-template-columns: 1fr; /* Una colonna sola su smartphone */
+        gap: 30px;
+    }
+}
+
+/* ==========================================================================
    MODULO DI CONTATTO MINIMAL (STILE TALLY)
    ========================================================================== */
 
