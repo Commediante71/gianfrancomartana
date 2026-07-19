@@ -798,6 +798,9 @@ nav ul {
     touch-action: pan-x pan-y !important; 
     overscroll-behavior-x: contain !important;
     overscroll-behavior-y: auto !important;
+
+    /* BLOCCO INERZIA AUTOMATICA: Dice a iOS e Android di frenare immediatamente lo scorrimento appena stacchi il dito */
+    -webkit-overflow-scrolling: auto !important; 
 }
 
 /* IL FRENO: Applicato sia alle classi specifiche sia a qualunque figlio diretto dei contenitori */
@@ -805,8 +808,8 @@ nav ul {
 .taccuino-griglia > *,
 .opera-card,
 .taccuino-post {
-    scroll-snap-stop: always !important; /* Costringe a fermarsi alla scheda successiva */
-    scroll-snap-align: start !important; /* Rinfresca l'ancoraggio magnetico */
+    scroll-snap-stop: always !important; 
+    scroll-snap-align: start !important; 
     touch-action: pan-x pan-y !important; 
 }
 
