@@ -770,4 +770,18 @@ nav ul {
         text-align: center; 
         margin-top: 5px;
     }
+    .taccuino-griglia {
+        display: flex;
+        grid-template-columns: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .taccuino-post {
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+    }
 }
