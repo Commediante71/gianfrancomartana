@@ -770,18 +770,45 @@ nav ul {
         text-align: center; 
         margin-top: 5px;
     }
-    .taccuino-griglia {
-        display: flex;
-        grid-template-columns: none;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 20px;
-        padding-bottom: 20px;
-        -webkit-overflow-scrolling: touch;
-    }
+    /* --- TRASFORMAZIONE TACCUINO IN CAROUSEL SU SMARTPHONE (VERSIONE BLINDATA) --- */
 
-    .taccuino-post {
-        flex: 0 0 85%;
-        scroll-snap-align: start;
-    }
+/* --- CONFIGURAZIONE MOBILE: CAROUSEL + SBLOCCO FLUIDITÀ --- */
+
+.taccuino-griglia {
+    display: flex !important;       
+    flex-direction: row !important; 
+    overflow-x: auto !important;    
+    overflow-y: hidden !important;  
+    scroll-snap-type: x mandatory;   
+    gap: 20px;
+    padding-bottom: 25px;           
+    -webkit-overflow-scrolling: touch; 
+}
+
+.taccuino-post {
+    flex: 0 0 85% !important;       
+    scroll-snap-align: start;
+    box-sizing: border-box; 
+}
+
+/* --- 2. SBLOCCO IMPUNTAMENTO VERTICALE DI DIREZIONE --- */
+.opere-grid,          /* <--- Modificata con la tua classe reale! */
+.taccuino-griglia {
+    scroll-snap-stop: normal !important; 
+    touch-action: pan-x pan-y !important; 
+    overscroll-behavior-x: contain !important;
+    overscroll-behavior-y: auto !important;
+}
+
+.opera-card,
+.taccuino-post {
+    scroll-snap-stop: normal !important;
+    touch-action: manipulation !important; 
+}
+
+/* Applichiamo lo sblocco generale per evitare attriti nel body */
+html, body {
+    overscroll-behavior-y: auto !important;
+    touch-action: pan-x pan-y !important;
+}
 }
