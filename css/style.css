@@ -791,7 +791,6 @@ nav ul {
     box-sizing: border-box; 
 }
 
-/* --- 2. SBLOCCO IMPUNTAMENTO VERTICALE DI DIREZIONE --- */
 /* --- SBLOCCO IMPUNTAMENTO VERTICALE DI DIREZIONE --- */
 .opere-grid,          
 .taccuino-griglia {
@@ -801,10 +800,14 @@ nav ul {
     overscroll-behavior-y: auto !important;
 }
 
+/* IL FRENO: Applicato sia alle classi specifiche sia a qualunque figlio diretto dei contenitori */
+.opere-grid > *,
+.taccuino-griglia > *,
 .opera-card,
 .taccuino-post {
-    scroll-snap-stop: always !important;
-    touch-action: pan-x pan-y !important; /* Costringe le schede a dare la priorità assoluta allo scroll verticale */
+    scroll-snap-stop: always !important; /* Costringe a fermarsi alla scheda successiva */
+    scroll-snap-align: start !important; /* Rinfresca l'ancoraggio magnetico */
+    touch-action: pan-x pan-y !important; 
 }
 
 /* --- SBLOCCO TOUCH SU IMMAGINI E TESTI DELLE SCHEDE --- */
@@ -814,8 +817,8 @@ nav ul {
 .taccuino-griglia h3,
 .opere-grid p,
 .taccuino-griglia p {
-    user-select: none !important;        /* Evita che il testo si selezioni bloccando il dito */
-    -webkit-user-drag: none !important;  /* Impedisce il trascinamento nativo delle immagini */
+    user-select: none !important;        
+    -webkit-user-drag: none !important;  
     pointer-events: none !important;
 }
 
