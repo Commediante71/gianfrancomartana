@@ -20,13 +20,24 @@
     <ul>
         <li><a href="#inizio">Home</a></li>
         <li><a href="#chi-sono">Chi sono</a></li>
-        <li><a href="#note">Note a margine</a></li>
         <li><a href="#opere">Opere scelte</a></li>
         <li><a href="#contatti">Contatti</a></li>
+        
+        <!-- La tendina sostituisce le due voci lunghe -->
+        <li class="nav-dropdown">
+            <button class="dropdown-trigger">
+                Altro <span class="triangolino">▼</span>
+            </button>
+            <div class="dropdown-menu">
+                <a href="#note-a-margine" class="dropdown-link">Note a margine</a>
+                <a href="#taccuino" class="dropdown-link">Taccuino</a>
+            </div>
+        </li>
     </ul>
 
-    <!-- Lo switch della lingua inserito direttamente dentro il nav -->
-    <div class="lang-switcher"><span class="active">IT</span> | <a href="en/index.html">EN</a> | <a href="fr/index.html">FR</a></div>
+    <div class="lang-switcher">
+        <span class="active">IT</span> | <a href="en/index.html">EN</a> | <a href="fr/index.html">FR</a>
+    </div>
 </nav>
     <header>
        
@@ -56,7 +67,7 @@
             </div>
         </section>
 
-        <section id="note">
+        <section id="note-a-margine">
             <h2>Note a margine</h2>
             <div class="content">
                 <p>Quando non scrivo, lavoro come guida turistica.</p>
@@ -169,61 +180,60 @@ dirimpettaia.</p>
     </div>
 </section>
 
-<!-- ==========================================
-     SEZIONE TACCUINO / OFFICINA
-     ========================================== -->
-<section class="taccuino-container" id="taccuino">
-    <h2 class="sezione-titolo">Taccuino</h2>
-    
-    <div class="taccuino-grid">
+<!-- ==========================================================================
+     SEZIONE TACCUINO 
+     ========================================================================== -->
+<section id="taccuino" class="sezione-taccuino">
+    <div class="container-piccolo">
+        <h2>Taccuino</h2>
         
-        <!-- INIZIO DIARIO ENTRY 2 (La più recente, sta in alto) -->
-        <div class="taccuino-card">
-            <div class="taccuino-img-wrapper">
-                <img src="immagini/taccuino-2.jpg" alt="Nota visiva" class="taccuino-img">
-            </div>
-            <div class="taccuino-content">
-                <span class="taccuino-data">17 Luglio 2026</span>
-                <h3 class="taccuino-titolo">Il riflesso delle parole</h3>
-                
-                <details class="taccuino-details">
-                    <summary class="taccuino-summary">
-                        <span class="testo-sfumato">Questo è l'incipit del tuo pensiero, le prime righe che rimangono sempre visibili al lettore. Le parole qui scorrono fluide e introducono l'immagine sopra...</span>
-                        <span class="tasto-espandi">[ Leggi tutto ]</span>
-                    </summary>
-                    <div class="taccuino-testo-completo">
-                        <p>E qui prosegue il resto della tua riflessione. Questo testo apparirà magicamente verso il basso non appena il lettore clicca su "Leggi tutto".</p>
-                        <p>Puoi scrivere quanto vuoi, aggiungere paragrafi e strutturare il pensiero in totale libertà senza appesantire la pagina iniziale.</p>
-                    </div>
-                </details>
-            </div>
+        <div class="taccuino-griglia">
+    
+    <!-- PRIMO POST -->
+    <article class="taccuino-post">
+        <div class="taccuino-immagine">
+            <img src="images/gozzo.jpg" alt="Descrizione immagine">
         </div>
-        <!-- FINE DIARIO ENTRY 2 -->
+        <time>18 luglio 2026</time>
+        <h3>Una folgorazione</h3>
+        
+        <!-- Testo iniziale sempre visibile -->
+        <p>Il mio romanzo <em>Mammaliturchi!</em> è ambientato in un’immaginaria cittadina sulla costa cilentana. Un giorno, passeggiando per le strade di Praia a Mare, mi sono trovato di fronte a questa scena surreale: un gozzo “parcheggiato” sul marciapiedi.</p>
+        
+        <!-- Blocco espandibile -->
+        <details class="taccuino-espandibile">
+            <summary class="tasto-leggi-tutto">Leggi tutto</summary>
+            <div class="testo-nascosto">
+                <p>Mi è venuto in mente l’incipit del romanzo, in cui, fra l’altro, descrivo le persone del posto, e ho capito subito che dovevo dare testimonianza di quello che avevo appena visto. E così, appena sono tornato a casa, ho aggiunto un periodo al testo che avevo già scritto. Lo trovate in fondo a questo breve estratto.</p>
 
-        <!-- INIZIO DIARIO ENTRY 1 (Quella più vecchia, sta sotto) -->
-        <div class="taccuino-card">
-            <div class="taccuino-img-wrapper">
-                <img src="immagini/taccuino-1.jpg" alt="Nota visiva" class="taccuino-img">
+<p>In quella bella mattina, dunque, chi lavorava sul mare benediceva il mestiere, e in verità la gran parte degli autoctoni pareva proprio forgiata dal mare, a giudicare dal colore e dal tono della pelle – da cui con una ditata si poteva tirar via una striscia di sale – dalla scattante robustezza del corpo, dalla pratica noncuranza nell’abbigliamento, dai gesti essenziali ed esatti del marinaio che affronta la burrasca. [...] È come se un giorno la terra li avesse sorpresi alle spalle e si fossero adattati malvolentieri alle strade trafficate, all’ombra troppo alta e ai colori accesi dei palazzi nuovi che risalivano la collina, all’afa che veniva dall’asfalto e dal cemento. Tutte quelle escrescenze terragne, che col tempo si erano fatte più dense e più sfacciate, parevano premere su di loro per ributtarli nel mare da cui venivano e liberarsi così della loro fastidiosa e ingrata presenza. Tuttavia, non mancavano sacche di resistenza: il mare s’infiltrava nella terraferma sotto forma di barchette e piccoli gozzi lasciati in rimessaggio sui marciapiedi o nei giardini, dove spesso giacevano anche lunghe cime avvolte in spire, come grossi cani addormentati. </p>
+
             </div>
-            <div class="taccuino-content">
-                <span class="taccuino-data">10 Luglio 2026</span>
-                <h3 class="taccuino-titolo">Ombre d'estate</h3>
-                
-                <details class="taccuino-details">
-                    <summary class="taccuino-summary">
-                        <span class="testo-sfumato">Un'altra riflessione nata da uno scatto rubato. Il lettore vede questa anteprima e decide se approfondire o continuare a scorrere la griglia...</span>
-                        <span class="tasto-espandi">[ Leggi tutto ]</span>
-                    </summary>
-                    <div class="taccuino-testo-completo">
-                        <p>Ecco il cuore del vecchio pensiero, svelato solo a chi ha la curiosità di cliccare.</p>
-                    </div>
-                </details>
-            </div>
+        </details>
+    </article>
+    
+    <!-- SECONDO POST -->
+    <article class="taccuino-post">
+        <div class="taccuino-immagine">
+            <img src="images/missile.jpg" alt="Descrizione immagine">
         </div>
-        <!-- FINE DIARIO ENTRY 1 -->
+        <time>15 luglio 2026</time>
+        <h3>Dalla foto al racconto</h3>
+        
+        <p>Il mio racconto <em>Nel campo di Azat</em> (che potete leggere seguendo il link nella sezione “Opere scelte”) è stato ispirato da questa foto scattata a Martuni da Valery Melnikov, che mi ha autorizzato a usarla. La foto è stata premiata al World Press Photo, ed è stato proprio visitando una mostra a Valencia che l’ho scoperta.</p>
+        
+        <details class="taccuino-espandibile">
+            <summary class="tasto-leggi-tutto">Leggi tutto</summary>
+            <div class="testo-nascosto">
+                <p>Ricordo che il mio primo pensiero, al vederla, è stato: “Chissà che angoscia per le persone del posto quando hanno trovato questo missile inesploso in uno dei loro campi.” Da lì ho cominciato a immaginare una storia tragicomica narrata da uno degli abitanti del villaggio. Una prima versione del racconto è stata pubblicata in Spagna sulla rivista «Papenfuss». Quando poi l’ho inviato alla rivista italiana «Altri animali», è successa una cosa interessante: l’editor che l’ha letto mi ha risposto che apprezzava il testo, ma che l’avrebbero pubblicato solo se l’avessi sviluppato ulteriormente. Gli ho risposto che l’avrei fatto senz’altro, e qualche giorno dopo, durante un viaggio in aereo, ho finalmente arricchito la storia di nuovi episodi. Quando l’ho inviata di nuovo, la risposta è stata, per fortuna, molto positiva. Fra i miei racconti, <em>Nel campo di Azat</em> è forse quello che ha ottenuto più riconoscimenti. Oltre a essere stato pubblicato in italiano e spagnolo, infatti, nella versione in valenciano ha vinto il concorso di narrativa breve della Real Vila de Guardamar.</p>
+            </div>
+        </details>
+    </article>
 
+</div>
     </div>
 </section>
+
 <!-- ========================================== -->
 
 <section id="contatti">
