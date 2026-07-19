@@ -20,12 +20,24 @@
     <ul>
         <li><a href="#inizio">Home</a></li>
         <li><a href="#chi-sono">About me</a></li>
-        <li><a href="#note">Marginalia</a></li>
         <li><a href="#opere">Selected works</a></li>
         <li><a href="#contatti">Contact</a></li>
+        
+        <!-- La tendina in inglese -->
+        <li class="nav-dropdown">
+            <button class="dropdown-trigger">
+                More <span class="triangolino">▼</span>
+            </button>
+            <div class="dropdown-menu">
+                <a href="#note" class="dropdown-link">Marginalia</a>
+                <a href="#taccuino" class="dropdown-link">Notebook</a>
+            </div>
+        </li>
     </ul>
 
-    <div class="lang-switcher"><a href="../index.html">IT</a> | <span class="active">EN</span> | <a href="../fr/index.html">FR</a></div>
+    <div class="lang-switcher">
+        <a href="../index.html">IT</a> | <span class="active">EN</span> | <a href="../fr/index.html">FR</a>
+    </div>
 </nav>
 <header>
         <div class="hero">
@@ -154,6 +166,59 @@
         </article>
     </div>
 </section>
+
+<!-- ==========================================================================
+     SEZIONE TACCUINO 
+     ========================================================================== -->
+<section id="taccuino" class="sezione-taccuino">
+    <div class="container-piccolo">
+        <h2>Notebook</h2>
+        
+        <div class="taccuino-griglia">
+    
+    <!-- PRIMO POST -->
+    <article class="taccuino-post">
+        <div class="taccuino-immagine">
+            <img src="../images/gozzo.jpg" alt="Descrizione immagine">
+        </div>
+        <time>July 18th, 2026</time>
+        <h3>A Flash of Inspiration</h3>
+        
+        <!-- Testo iniziale sempre visibile -->
+<p>My novel <em>Mammaliturchi!</em> is set in an imaginary town on the Cilento coast. One day, while walking through the streets of Praia a Mare, I came across this somewhat surreal scene: a traditional fishing boat (“gozzo”) “parked” right on the sidewalk.</p>        
+        <!-- Blocco espandibile -->
+        <details class="taccuino-espandibile">
+            <summary class="tasto-leggi-tutto">Read more</summary>
+            <div class="testo-nascosto">
+<p>The novel’s opening scene instantly came to mind, where, among other things, I describe the locals, and I knew right away that I had to bear witness to what I had just seen. So, as soon as I got home, I added a sentence to the text I had already written. You can find it at the end of this short excerpt.</p>
+ 
+<p>On that beautiful morning, then, those who worked at sea blessed their trade, and truth be told, the vast majority of the natives truly seemed forged by the sea, judging by the color and tone of their skin—from which a swipe of a finger could scrape off a streak of salt—by the nimble robustness of their bodies, by the practical nonchalance of their clothing, by the essential and precise gestures of a sailor facing a storm. [...] It is as though one day the land had sneaked up on them from behind and they had reluctantly adapted to the busy streets, to the far too tall shadows and bright colors of the new buildings climbing up the hill, to the muggy heat rising from the asphalt and concrete. All those earthly excrescences, which over time had grown denser and more brazen, seemed to press upon them to cast them back into the sea from which they came, thus ridding itself of their troublesome and ungrateful presence. However, there was no shortage of pockets of resistance: the sea infiltrated the mainland in the form of small boats and little “gozzi” left in storage on the sidewalks or in the gardens, where long ropes often lay coiled up like large, sleeping dogs.</p>
+
+            </div>
+        </details>
+    </article>
+    
+    <!-- SECONDO POST -->
+    <article class="taccuino-post">
+        <div class="taccuino-immagine">
+            <img src="../images/missile.jpg" alt="Descrizione immagine">
+        </div>
+        <time>July 15th, 2026</time>
+        <h3>From Photo to Story</h3>
+        
+        <p>My short story <em>In Azat’s Field</em> (that you can read in Italian by following the link in the “Selected Works” section) was inspired by this photo taken in Martuni by Valery Melnikov, who kindly authorized me to use it. The photo was awarded at the World Press Photo exhibition, and it was actually while visiting the exhibition in Valencia that I first discovered it.</p>
+        
+        <details class="taccuino-espandibile">
+            <summary class="tasto-leggi-tutto">Read more</summary>
+            <div class="testo-nascosto">
+                <p>I remember my first thought upon seeing it was: “Imagine the sheer anxiety of the locals when they found this unexploded missile in one of their fields.” From there, I began to imagine a tragicomic story narrated by one of the villagers. An early version of the story was published in Spain in the magazine «Papenfuss». Later, when I submitted it to the Italian magazine «Altri animali», something interesting happened: the editor who read it replied that they found the idea compelling, but they would only publish it if I developed it further. I told them I absolutely would, and a few days later, during a flight, I finally enriched the story with new episodes. When I sent it back, the response was, fortunately, very positive. Among my short stories, <em>In Azat’s Field</em> is perhaps the one that has received the most recognition. In fact, besides being published in Italian and Spanish, the Valencian version won the Short Story Competition Real Vila de Guardamar.</p>
+        </details>
+    </article>
+
+</div>
+    </div>
+</section>
+
 <section id="contatti">
             <h2>Contact</h2>
             <div class="content">
