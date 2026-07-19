@@ -105,27 +105,27 @@ nav a:hover {
 .hero-text {
     flex: 1;
     text-align: left;
+    max-width: 380px; /* MODIFICA: Limita la larghezza per costringere "MARTANA" ad andare sotto */
 }
 
 h1 {
-   font-family: 'Source Serif 4', Georgia, serif;
+    font-family: 'Source Serif 4', Georgia, serif;
     text-transform: uppercase; /* Per forzare il maiuscolo */
     
     /* MODIFICA FONDAMENTALE PER IL FONT */
     font-weight: 600;          /* Forza il peso Bold (o 600 per Semi-Bold) */
     
     /* ALTRE REGHE PER AVVICINARSI */
-    font-size: 1.5rem       /* Aumentiamo leggermente la dimensione */
+    font-size: 3.5rem;       /* MODIFICA: Ingrandito significativamente (prima era 1.5rem) */
     
     color: #1a1a1a;            /* Un nero quasi puro */
-    margin-bottom: 0;          /* Eliminiamo lo spazio sotto per il punto 2 */
-    line-height: 0.85 !important;
+    margin-bottom: 10px;       /* MODIFICA: Un minimo di spazio prima della professione */
+    line-height: 0.85 !important; /* MODIFICA: Portato a 1.1 (0.85 farebbe sovrapporre le due righe grandi) */
 }
 
 .professione {
     font-size: 2rem;
     color: #666;
-    
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -140,7 +140,6 @@ h1 {
     border-radius: 50%;
     object-fit: cover;
 }
-
 /* ==========================================================================
    SEZIONI DEL CORPO (MAIN)
    ========================================================================== */
@@ -519,7 +518,7 @@ footer {
         overflow-x: auto !important;
         scroll-snap-type: x mandatory; 
         scroll-behavior: smooth;
-        scroll-boundary-behavior: none;
+        overscroll-behavior: none;
         -webkit-overflow-scrolling: auto; 
         scrollbar-width: none;
         padding: 15px 20px;
@@ -587,7 +586,169 @@ nav ul {
     gap: 20px; 
 }
 
+/* ==========================================================================
+   GESTIONE TENDINA "ALTRO"
+   ========================================================================== */
 
+/* Posizioniamo l'elemento contenitore */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Stilizziamo il bottone "Altro", uniformandolo agli altri link */
+/* Stilizziamo il bottone "Altro", uniformandolo perfettamente agli altri link */
+.dropdown-trigger {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: #666; /* Il grigio originale dei tuoi link */
+    padding: 0 0 0 15px; /* Aggiunge spazio a sinistra per staccarlo da "Contatti" */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    line-height: inherit; /* Forza la stessa altezza linea degli altri link */
+    vertical-align: middle;
+}
+
+/* Cambia colore al passaggio del mouse sul bottone */
+.dropdown-trigger:hover {
+    color: #000;
+}
+
+/* Configurazione del menu a tendina (Inizialmente nascosto e verticale) */
+.dropdown-menu {
+    display: none; /* Nasconde il menu di base */
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #faf9f6; /* Sfondo panna chiaro */
+    min-width: 160px;
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.05);
+    border: 1px solid #e2e0db;
+    border-radius: 4px;
+    z-index: 1000;
+    padding: 6px 0;
+    margin-top: 5px;
+}
+
+/* Forziamo i link interni a disporsi in VERTICALE */
+.dropdown-menu a.dropdown-link {
+    display: block !important; /* Sovrascrive la disposizione orizzontale del menu principale */
+    color: #666;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+/* Effetto hover sui link interni alla tendina */
+.dropdown-menu a.dropdown-link:hover {
+    color: #000;
+    background-color: #f1efe9; /* Leggero sfondo scuro all'hover */
+}
+
+/* MOSTRA LA TENDINA QUANDO SI PASSA IL MOUSE */
+.nav-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Piccola finezza per il triangolino */
+.triangolino {
+    font-size: 0.6rem;
+    color: #999;
+}
+
+/* ==========================================================================
+   GRAFICA SEZIONE TACCUINO (CON IMMAGINI 3:2)
+   ========================================================================== */
+
+.sezione-taccuino {
+    padding: 80px 0;
+}
+
+/* Griglia a due colonne */
+.taccuino-griglia {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.taccuino-post {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Il contenitore forza la proporzione matematica 3:2 */
+.taccuino-immagine {
+    width: 100%;
+    aspect-ratio: 3 / 2; /* Rapporto Larghezza / Altezza */
+    overflow: hidden;
+    margin-bottom: 15px;
+    background-color: #f1efe9; /* Sfondo di cortesia se la foto impiega a caricarsi */
+}
+
+/* L'immagine si adatta perfettamente senza deformarsi */
+.taccuino-immagine img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ritaglia geometricamente la foto al centro mantenendo le proporzioni */
+    transition: opacity 0.3s ease;
+}
+
+.taccuino-post time {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.taccuino-post h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+/* Styling del blocco espandibile */
+.taccuino-espandibile {
+    margin-top: 10px;
+}
+
+/* Trasformiamo il 'summary' nel tasto "Leggi tutto" */
+.tasto-leggi-tutto {
+    display: inline-block;
+    color: #666;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    cursor: pointer;
+    list-style: none; /* Nasconde la freccetta nera standard su Chrome/Firefox */
+    transition: color 0.2s ease;
+}
+
+/* Nasconde la freccetta standard su Safari */
+.tasto-leggi-tutto::-webkit-details-marker {
+    display: none;
+}
+
+.tasto-leggi-tutto:hover {
+    color: #000;
+}
+
+/* Spazio per il testo che appare */
+.testo-nascosto {
+    margin-top: 15px;
+    padding-top: 5px;
+}
+
+/* Quando il blocco è APERTO, cambiamo il testo del pulsante (opzionale) o nascondiamo il tasto */
+.taccuino-espandibile[open] .tasto-leggi-tutto {
+    margin-bottom: 10px;
+    color: #999;
+    /* Se preferisci che la scritta diventi "Mostra meno", o semplicemente rimanga lì per richiudere */
+}
 /* ==========================================================================
    4. ADATTAMENTO NAV + SWITCH SU SMARTPHONE
    ========================================================================== */
