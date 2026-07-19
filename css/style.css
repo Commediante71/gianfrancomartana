@@ -792,7 +792,8 @@ nav ul {
 }
 
 /* --- 2. SBLOCCO IMPUNTAMENTO VERTICALE DI DIREZIONE --- */
-.opere-grid,          /* <--- Modificata con la tua classe reale! */
+/* --- SBLOCCO IMPUNTAMENTO VERTICALE DI DIREZIONE --- */
+.opere-grid,          
 .taccuino-griglia {
     scroll-snap-stop: normal !important; 
     touch-action: pan-x pan-y !important; 
@@ -802,8 +803,20 @@ nav ul {
 
 .opera-card,
 .taccuino-post {
-    scroll-snap-stop: normal !important;
-    touch-action: manipulation !important; 
+    scroll-snap-stop: always !important;
+    touch-action: pan-x pan-y !important; /* Costringe le schede a dare la priorità assoluta allo scroll verticale */
+}
+
+/* --- SBLOCCO TOUCH SU IMMAGINI E TESTI DELLE SCHEDE --- */
+.opere-grid img,
+.taccuino-griglia img,
+.opere-grid h3,
+.taccuino-griglia h3,
+.opere-grid p,
+.taccuino-griglia p {
+    user-select: none !important;        /* Evita che il testo si selezioni bloccando il dito */
+    -webkit-user-drag: none !important;  /* Impedisce il trascinamento nativo delle immagini */
+    pointer-events: none !important;
 }
 
 /* Applichiamo lo sblocco generale per evitare attriti nel body */
@@ -811,4 +824,5 @@ html, body {
     overscroll-behavior-y: auto !important;
     touch-action: pan-x pan-y !important;
 }
-}
+
+} /* <--- QUESTA CHIUDE LA @MEDIA QUERY GENERALE DELLO SMARTPHONE */
