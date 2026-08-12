@@ -843,3 +843,28 @@ html, body {
 }
 
 } /* <--- QUESTA CHIUDE LA @MEDIA QUERY GENERALE DELLO SMARTPHONE */
+/* ... tutto il tuo codice CSS precedente ... */
+
+
+/* ========================================== */
+/* MESSAGGIO DI CONFERMA FORM INLINE          */
+/* ========================================== */
+
+.box-conferma-inline {
+    display: none;
+    margin-top: 15px;
+    padding: 12px 15px;
+    border: 2px solid #46b450; /* Verde successo */
+    background-color: #ffffff;
+    color: #2c3e50;
+    font-size: 0.95rem;
+    border-radius: 4px;
+}
+
+.box-conferma-inline.mostra {
+    display: block;
+}
+
+.box-conferma-inline.errore {
+    border-color: #dc3232; /* Rosso errore */
+}
