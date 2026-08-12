@@ -267,23 +267,28 @@
             <div class="content">
                 <p>Si ce que vous avez lu a éveillé votre curiosité, je serais ravi de recevoir votre message.</p>
                 
-                <form class="contatti-form" action="https://formsubmit.co/a92bd594aa3193a9273f2b57cc915899" method="POST">
+                <form class="contatti-form" id="contatti-form" action="https://formsubmit.co/a92bd594aa3193a9273f2b57cc915899" method="POST">
     
-    <input type="hidden" name="_next" value="https://www.gianfrancomartana.com/fr/merci.html">
-    
+    <!-- Disabilita il Captcha visivo di FormSubmit per rendere l'invio istantaneo -->
+    <input type="hidden" name="_captcha" value="false">
+
     <div class="form-group">
-        <input type="text" id="nome" name="nome" required placeholder="Nom">
+      <input type="text" id="nome" name="nome" required placeholder="Nom">
     </div>
 
     <div class="form-group">
-        <input type="email" id="email" name="visitor_email" required placeholder="E-mail">
+      <input type="email" id="email" name="visitor_email" required placeholder="E-mail">
     </div>
 
     <div class="form-group">
-        <textarea id="messaggio" name="messaggio" rows="6" required placeholder="Message"></textarea>
+      <textarea id="messaggio" name="messaggio" rows="6" required placeholder="Message"></textarea>
     </div>
 
-    <button type="submit" class="btn-invia">Envoyer &rarr;</button>
+    <button type="submit" id="btn-invia" class="btn-invia">Envoyer &rarr;</button>
+
+    <!-- BOX MESSAGGIO DI CONFERMA (Inizialmente vuoto/nascosto) -->
+    <div id="messaggio-conferma" class="box-conferma-inline"></div>
+
 </form>
 
                 <!-- Icona Instagram -->
@@ -307,6 +312,48 @@
     <footer>
         <p>&copy; 2026 Gianfranco Martana. Tous droits réservés.</p>
     </footer>
+<script>
+document.getElementById('contatti-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Impedisce l'apertura di nuove pagine
 
+    const form = this;
+    const btn = document.getElementById('btn-invia');
+    const box = document.getElementById('messaggio-conferma');
+    const testoOriginaleBtn = btn.innerHTML;
+
+    // Cambia il testo del bottone durante l'invio
+    btn.innerHTML = "Envoi en cours...";
+    btn.disabled = true;
+
+    // Invia i dati a FormSubmit in background
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Messaggio di successo
+box.textContent = "Merci ! Votre message a bien été envoyé. Je vous répondrai dans les plus brefs délais.";            box.className = "box-conferma-inline mostra";
+            form.reset(); // Svuota i campi
+        } else {
+            // In caso di errore
+            box.textContent = "Une erreur s'est produite. Veuillez réessayer plus tard.";
+            box.className = "box-conferma-inline mostra errore";
+        }
+    })
+    .catch(error => {
+        box.textContent = "Erreur de connexion. Veuillez réessayer plus tard.";
+        box.className = "box-conferma-inline mostra errore";
+    })
+    .finally(() => {
+        // Ripristina il bottone
+        btn.innerHTML = testoOriginaleBtn;
+        btn.disabled = false;
+    });
+});
+</script>
 </body>
 </html>
