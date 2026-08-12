@@ -13,6 +13,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- ========================================== -->
+    <!--     DATI STRUTTURATI JSON-LD (SCHEMA.ORG)   -->
+    <!-- ========================================== -->
+    
+    <!-- Scheda Personale (Artista) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gianfranco Martana",
+      "jobTitle": ["Artista", "Scrittore"],
+      "url": "https://www.gianfrancomartana.com"
+    }
+    </script>
 </head>
 
 <body id="inizio">
@@ -273,25 +287,29 @@ dirimpettaia.</p>
     <div class="content">
                 <p>Se hai letto qualcosa che ti ha incuriosito, sarò felice di ricevere un tuo messaggio.</p>
                 
-                <form class="contatti-form" action="https://formsubmit.co/a92bd594aa3193a9273f2b57cc915899" method="POST">
+                <form class="contatti-form" id="contatti-form" action="https://formsubmit.co/a92bd594aa3193a9273f2b57cc915899" method="POST">
     
-    <!-- Questa riga dice a FormSubmit di mostrare la tua pagina personalizzata dopo l'invio -->
-    <input type="hidden" name="_next" value="https://www.gianfrancomartana.com/grazie.html">
-    
+    <!-- Disabilita il Captcha visivo di FormSubmit per rendere l'invio istantaneo -->
+    <input type="hidden" name="_captcha" value="false">
+
     <div class="form-group">
-          <input type="text" id="nome" name="nome" required placeholder="Nome">
-        </div>
+      <input type="text" id="nome" name="nome" required placeholder="Nome">
+    </div>
 
-        <div class="form-group">
-          <input type="email" id="email" name="visitor_email" required placeholder="E-mail">
-        </div>
+    <div class="form-group">
+      <input type="email" id="email" name="visitor_email" required placeholder="E-mail">
+    </div>
 
-        <div class="form-group">
-          <textarea id="messaggio" name="messaggio" rows="6" required placeholder="Messaggio"></textarea>
-        </div>
+    <div class="form-group">
+      <textarea id="messaggio" name="messaggio" rows="6" required placeholder="Messaggio"></textarea>
+    </div>
 
-        <button type="submit" class="btn-invia">Invia &rarr;</button>
-      </form>
+    <button type="submit" id="btn-invia" class="btn-invia">Invia &rarr;</button>
+
+    <!-- BOX MESSAGGIO DI CONFERMA (Inizialmente vuoto/nascosto) -->
+    <div id="messaggio-conferma" class="box-conferma-inline"></div>
+
+</form>
 
                 <!-- Icona Instagram -->
                 <div class="social-links">
@@ -314,6 +332,49 @@ dirimpettaia.</p>
     <footer>
         <p>&copy; 2026 Gianfranco Martana. Tutti i diritti riservati.</p>
     </footer>
+<script>
+document.getElementById('contatti-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Impedisce l'apertura di nuove pagine
 
+    const form = this;
+    const btn = document.getElementById('btn-invia');
+    const box = document.getElementById('messaggio-conferma');
+    const testoOriginaleBtn = btn.innerHTML;
+
+    // Cambia il testo del bottone durante l'invio
+    btn.innerHTML = "Invio in corso...";
+    btn.disabled = true;
+
+    // Invia i dati a FormSubmit in background
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Messaggio di successo
+            box.textContent = "Grazie! Il tuo messaggio è stato inviato. Ti risponderò al più presto.";
+            box.className = "box-conferma-inline mostra";
+            form.reset(); // Svuota i campi
+        } else {
+            // In caso di errore
+            box.textContent = "Si è verificato un errore. Riprova più tardi.";
+            box.className = "box-conferma-inline mostra errore";
+        }
+    })
+    .catch(error => {
+        box.textContent = "Errore di connessione. Riprova più tardi.";
+        box.className = "box-conferma-inline mostra errore";
+    })
+    .finally(() => {
+        // Ripristina il bottone
+        btn.innerHTML = testoOriginaleBtn;
+        btn.disabled = false;
+    });
+});
+</script>
 </body>
 </html>
