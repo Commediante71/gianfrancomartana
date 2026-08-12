@@ -13,6 +13,20 @@
      <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- ========================================== -->
+    <!--     DATI STRUTTURATI JSON-LD (SCHEMA.ORG)   -->
+    <!-- ========================================== -->
+    
+    <!-- Scheda Personale (Artista) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gianfranco Martana",
+      "jobTitle": ["Artist", "Writer"],
+      "url": "https://www.gianfrancomartana.com"
+    }
+    </script>
 </head>
 
 <body id="inizio">
@@ -256,23 +270,28 @@
             <div class="content">
                 <p>If something you read here sparked your curiosity, I’d love to hear from you.</p>
                 
-                <form class="contatti-form" action="https://formsubmit.co/a92bd594aa3193a9273f2b57cc915899" method="POST">
+                <form class="contatti-form" id="contatti-form" action="https://formsubmit.co/a92bd594aa3193a9273f2b57cc915899" method="POST">
     
-    <input type="hidden" name="_next" value="https://www.gianfrancomartana.com/en/thanks.html">
-    
+    <!-- Disabilita il Captcha visivo di FormSubmit per rendere l'invio istantaneo -->
+    <input type="hidden" name="_captcha" value="false">
+
     <div class="form-group">
-        <input type="text" id="nome" name="nome" required placeholder="Name">
+      <input type="text" id="nome" name="nome" required placeholder="Name">
     </div>
 
     <div class="form-group">
-        <input type="email" id="email" name="visitor_email" required placeholder="E-mail">
+      <input type="email" id="email" name="visitor_email" required placeholder="E-mail">
     </div>
 
     <div class="form-group">
-        <textarea id="messaggio" name="messaggio" rows="6" required placeholder="Message"></textarea>
+      <textarea id="messaggio" name="messaggio" rows="6" required placeholder="Message"></textarea>
     </div>
 
-    <button type="submit" class="btn-invia">Send &rarr;</button>
+    <button type="submit" id="btn-invia" class="btn-invia">Send &rarr;</button>
+
+    <!-- BOX MESSAGGIO DI CONFERMA (Inizialmente vuoto/nascosto) -->
+    <div id="messaggio-conferma" class="box-conferma-inline"></div>
+
 </form>
 
                 <!-- Icona Instagram -->
@@ -296,6 +315,48 @@
     <footer>
         <p>&copy; 2026 Gianfranco Martana. All rights reserved.</p>
     </footer>
+<script>
+document.getElementById('contatti-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Impedisce l'apertura di nuove pagine
 
+    const form = this;
+    const btn = document.getElementById('btn-invia');
+    const box = document.getElementById('messaggio-conferma');
+    const testoOriginaleBtn = btn.innerHTML;
+
+    // Cambia il testo del bottone durante l'invio
+    btn.innerHTML = "Sending...";
+    btn.disabled = true;
+
+    // Invia i dati a FormSubmit in background
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Messaggio di successo
+box.textContent = "Thank you! Your message has been sent. I will reply as soon as possible."; box.className = "box-conferma-inline mostra";
+            form.reset(); // Svuota i campi
+        } else {
+            // In case of error
+            box.textContent = "An error occurred. Please try again later.";
+            box.className = "box-conferma-inline mostra errore";
+        }
+    })
+    .catch(error => {
+        box.textContent = "Connection error. Please try again later.";
+        box.className = "box-conferma-inline mostra errore";
+    })
+    .finally(() => {
+        // Restore the button
+        btn.innerHTML = testoOriginaleBtn;
+        btn.disabled = false;
+    });
+});
+</script>
 </body>
 </html>
